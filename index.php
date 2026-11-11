@@ -18,14 +18,23 @@ if(isset($_GET['cep'])){
  if(!isset($endereco["erro"]) && isset($_GET['cep'])):?>
 <div>
     <H2>CEP encontrado</H2>
+    
     <ul>
         <?php 
         foreach($endereco as $data => $valor) {
             if(strlen($valor) > 0){
             echo "$data: $valor <br>";
+            
             }
         }
         ?>
     </ul>
+    <form action="salvar.php"method="post">
+        <input type="text">
+        <button>salvar</button>
+    </form>
 </div>
+<?php elseif(isset($endereco['erro'])):?>
+<h2>cep nao emcontrado</h2>
+<P>O cep dilatado pelo usuario não existe</P>
 <<?php endif; ?>
