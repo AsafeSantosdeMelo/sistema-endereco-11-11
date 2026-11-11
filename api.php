@@ -1,8 +1,8 @@
 <?php 
-function buscarCep($cep){
+function buscarCep($cep): array{
     $data = json_decode(file_get_contents("https://viacep.com.br/ws/$cep/json/"),true);
     if(isset($data['erro'])){
-        return;
+        return [];
     }
 
     return $data;

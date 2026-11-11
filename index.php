@@ -1,11 +1,5 @@
 <?php 
 include "./api.php";
-$endereco = buscarCep("69905232");
-// 
-echo "<pre>";
-print_r($endereco);
-echo "</pre>";
-
 if(isset($_GET['cep'])){
     $cep = $_GET['cep'];
     $endereco = buscarCep($cep);
@@ -21,7 +15,7 @@ if(isset($_GET['cep'])){
        <button>Buscar</button>
 </form>
 <?php 
- if(isset($endereco['cep'])):?>
+ if(!isset($endereco["erro"]) && isset($_GET['cep'])):?>
 <div>
     <H2>CEP encontrado</H2>
     <ul>
